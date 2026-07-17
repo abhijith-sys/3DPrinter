@@ -1,7 +1,9 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
+import { useTheme } from '../theme/ThemeContext'
 
 type HeaderProps = {
-  variant?: 'light' | 'dark' | 'marketing'
+  variant?: 'default' | 'marketing'
   showAvatar?: boolean
   ctaTo?: string
 }
@@ -20,11 +22,12 @@ function LogoMark({ className = 'w-8 h-8' }: { className?: string }) {
 }
 
 export default function Header({
-  variant = 'light',
+  variant = 'default',
   showAvatar = false,
   ctaTo = '/quote',
 }: HeaderProps) {
   const location = useLocation()
+  const { isDark } = useTheme()
 
   if (variant === 'marketing') {
     const items = [
@@ -35,7 +38,7 @@ export default function Header({
     ]
 
     return (
-      <header className="relative w-full flex justify-between items-center px-6 md:px-12 lg:px-16 py-5 bg-white">
+      <header className="relative w-full flex justify-between items-center px-6 md:px-12 lg:px-16 py-5 bg-page">
         <Link to="/" className="flex items-center gap-2.5 text-on-surface shrink-0">
           <LogoMark className="w-8 h-8" />
           <span className="text-[20px] md:text-[22px] font-extrabold tracking-tight uppercase font-headline-lg">
@@ -48,11 +51,11 @@ export default function Header({
             <Link
               key={item.label}
               to={item.to}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d5d5d5] text-[13px] font-medium text-on-surface bg-white hover:border-on-surface transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-nav-border text-[13px] font-medium text-on-surface bg-page hover:border-on-surface transition-colors"
             >
               <span
                 className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                  item.match ? 'bg-on-surface' : 'border border-[#b5b5b5]'
+                  item.match ? 'bg-on-surface' : 'border border-outline'
                 }`}
               />
               {item.label}
@@ -60,37 +63,33 @@ export default function Header({
           ))}
         </nav>
 
-        <Link
-          to={ctaTo}
-          className="bg-on-surface text-white px-6 py-2.5 rounded-full text-[13px] font-semibold tracking-wide uppercase hover:opacity-90 active:scale-95 transition-all shrink-0"
-        >
-          GET QUOTE
-        </Link>
+        <div className="flex items-center gap-2 shrink-0">
+          <ThemeToggle compact />
+          <Link
+            to={ctaTo}
+            className={`px-6 py-2.5 rounded-full text-[13px] font-semibold tracking-wide uppercase hover:opacity-90 active:scale-95 transition-all ${
+              isDark
+                ? 'bg-primary-container text-on-primary-container'
+                : 'bg-on-surface text-page'
+            }`}
+          >
+            GET QUOTE
+          </Link>
+        </div>
       </header>
     )
   }
 
-  const isDark = variant === 'dark'
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     isActive
-      ? 'text-on-surface font-bold border-b-2 border-primary font-technical-label text-technical-label'
-      : 'text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label'
+      ? 'text-on-surface font-bold border-b-2 border-primary-container font-technical-label text-technical-label'
+      : 'text-on-surface-variant hover:text-primary-container transition-colors font-technical-label text-technical-label'
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 ${
-        isDark
-          ? 'bg-inverse-surface/80 border-on-surface-variant'
-          : 'bg-surface/80 border-outline-variant'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 bg-surface/80">
       <Link to="/" className="flex items-center gap-2 text-on-surface">
-        {!isDark && <LogoMark className="w-8 h-8" />}
-        <span
-          className={`font-headline-lg text-headline-lg font-bold tracking-tighter ${
-            isDark ? 'text-surface-bright' : 'text-on-surface'
-          }`}
-        >
+        <LogoMark className="w-8 h-8" />
+        <span className="font-headline-lg text-headline-lg font-bold tracking-tighter text-on-surface">
           PARTIFY
         </span>
       </Link>
@@ -110,14 +109,15 @@ export default function Header({
         </NavLink>
       </nav>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
+        <ThemeToggle compact />
         <Link
           to={ctaTo}
-          className={
+          className={`px-6 py-2 rounded-xl font-button-text text-button-text hover:opacity-90 active:scale-95 duration-100 transition-all ${
             isDark
-              ? 'bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-button-text text-button-text hover:opacity-90 active:scale-95 duration-100 transition-all'
-              : 'bg-on-surface text-white px-6 py-2.5 rounded-full font-button-text text-button-text hover:opacity-90 active:scale-95 transition-all'
-          }
+              ? 'bg-primary-container text-on-primary-container'
+              : 'bg-on-surface text-page rounded-full'
+          }`}
         >
           GET QUOTE
         </Link>

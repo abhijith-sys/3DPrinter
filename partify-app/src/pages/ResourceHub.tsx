@@ -61,7 +61,7 @@ export default function ResourceHub() {
           {resources.map((r) => (
             <article
               key={r.title}
-              className="bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-8 hover:bg-white hover:border-primary/30 transition-all group"
+              className="bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-8 hover:bg-surface-container-lowest hover:border-primary/30 transition-all group"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center">

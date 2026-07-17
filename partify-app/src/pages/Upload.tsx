@@ -19,7 +19,7 @@ export default function Upload() {
 
   return (
     <div className="bg-background text-on-background font-body-md min-h-screen flex flex-col">
-      <Header variant="light" />
+      <Header />
       <main className="flex-grow pt-20 pb-24 px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-container-max mx-auto w-full">
         <aside className="lg:col-span-3 flex flex-col gap-4 h-fit lg:sticky lg:top-32">
           <QuoteProgress step={1} />

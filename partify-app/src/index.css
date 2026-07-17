@@ -2,6 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
+/* —— Light (default marketing) —— */
+:root {
+  --c-secondary-fixed-dim: 188 195 255;
+  --c-tertiary-fixed-dim: 177 202 215;
+  --c-background: 252 249 248;
+  --c-outline-variant: 197 201 172;
+  --c-primary: 83 102 0;
+  --c-primary-container: 212 255 0;
+  --c-on-secondary-fixed: 11 20 79;
+  --c-on-surface-variant: 68 73 50;
+  --c-on-surface: 28 27 27;
+  --c-outline: 117 122 96;
+  --c-on-primary-fixed: 23 30 0;
+  --c-surface-container-highest: 229 226 225;
+  --c-secondary-fixed: 223 224 255;
+  --c-tertiary: 74 98 109;
+  --c-surface-tint: 83 102 0;
+  --c-inverse-primary: 176 213 0;
+  --c-on-secondary-container: 64 72 131;
+  --c-on-background: 28 27 27;
+  --c-on-secondary: 255 255 255;
+  --c-surface-container: 240 237 236;
+  --c-on-tertiary-fixed-variant: 50 74 84;
+  --c-tertiary-fixed: 205 231 243;
+  --c-primary-fixed-dim: 176 213 0;
+  --c-on-primary-fixed-variant: 62 76 0;
+  --c-on-primary: 255 255 255;
+  --c-error: 186 26 26;
+  --c-on-tertiary: 255 255 255;
+  --c-on-secondary-fixed-variant: 58 66 124;
+  --c-surface-variant: 229 226 225;
+  --c-tertiary-container: 216 242 255;
+  --c-on-tertiary-container: 87 111 122;
+  --c-error-container: 255 218 214;
+  --c-surface-container-low: 246 243 242;
+  --c-surface: 252 249 248;
+  --c-on-error: 255 255 255;
+  --c-secondary: 82 90 150;
+  --c-on-tertiary-fixed: 4 30 40;
+  --c-surface-bright: 252 249 248;
+  --c-inverse-surface: 49 48 48;
+  --c-primary-fixed: 202 243 0;
+  --c-inverse-on-surface: 243 240 239;
+  --c-on-error-container: 147 0 10;
+  --c-surface-dim: 220 217 217;
+  --c-surface-container-high: 235 231 231;
+  --c-on-primary-container: 95 116 0;
+  --c-surface-container-lowest: 255 255 255;
+  --c-secondary-container: 178 186 253;
+  --c-page: 255 255 255;
+  --c-muted: 110 110 110;
+  --c-hairline: 230 230 230;
+  --c-nav-border: 213 213 213;
+  --viewport-glass: rgba(30, 30, 30, 0.7);
+  --viewport-bg: #0a0a0a;
+}
+
+/* —— Dark (Workshop theme) —— */
+.dark {
+  --c-secondary-fixed-dim: 188 195 255;
+  --c-tertiary-fixed-dim: 177 202 215;
+  --c-background: 10 10 10;
+  --c-outline-variant: 68 73 50;
+  --c-primary: 176 213 0;
+  --c-primary-container: 212 255 0;
+  --c-on-secondary-fixed: 11 20 79;
+  --c-on-surface-variant: 197 201 172;
+  --c-on-surface: 243 240 239;
+  --c-outline: 117 122 96;
+  --c-on-primary-fixed: 23 30 0;
+  --c-surface-container-highest: 58 56 56;
+  --c-secondary-fixed: 223 224 255;
+  --c-tertiary: 177 202 215;
+  --c-surface-tint: 212 255 0;
+  --c-inverse-primary: 83 102 0;
+  --c-on-secondary-container: 243 240 239;
+  --c-on-background: 243 240 239;
+  --c-on-secondary: 255 255 255;
+  --c-surface-container: 40 39 39;
+  --c-on-tertiary-fixed-variant: 50 74 84;
+  --c-tertiary-fixed: 205 231 243;
+  --c-primary-fixed-dim: 176 213 0;
+  --c-on-primary-fixed-variant: 62 76 0;
+  --c-on-primary: 23 30 0;
+  --c-error: 255 180 171;
+  --c-on-tertiary: 255 255 255;
+  --c-on-secondary-fixed-variant: 58 66 124;
+  --c-surface-variant: 58 56 56;
+  --c-tertiary-container: 50 74 84;
+  --c-on-tertiary-container: 216 242 255;
+  --c-error-container: 147 0 10;
+  --c-surface-container-low: 28 27 27;
+  --c-surface: 49 48 48;
+  --c-on-error: 105 0 5;
+  --c-secondary: 178 186 253;
+  --c-on-tertiary-fixed: 4 30 40;
+  --c-surface-bright: 243 240 239;
+  --c-inverse-surface: 243 240 239;
+  --c-primary-fixed: 202 243 0;
+  --c-inverse-on-surface: 49 48 48;
+  --c-on-error-container: 255 218 214;
+  --c-surface-dim: 20 20 20;
+  --c-surface-container-high: 49 48 48;
+  --c-on-primary-container: 95 116 0;
+  --c-surface-container-lowest: 20 20 20;
+  --c-secondary-container: 178 186 253;
+  --c-page: 10 10 10;
+  --c-muted: 160 160 160;
+  --c-hairline: 68 68 68;
+  --c-nav-border: 80 80 80;
+  --viewport-glass: rgba(20, 20, 20, 0.75);
+  --viewport-bg: #0a0a0a;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-on-background font-body-md antialiased transition-colors duration-200;
+  }
+}
+
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
@@ -25,7 +149,7 @@
 }
 
 .viewport-glass {
-  background: rgba(30, 30, 30, 0.7);
+  background: var(--viewport-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }

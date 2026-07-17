@@ -217,17 +217,17 @@ export default function Workshop() {
   }
 
   return (
-    <div className="bg-inverse-surface text-on-background font-body-md overflow-hidden h-screen flex flex-col dark">
-      <Header variant="dark" showAvatar />
+    <div className="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col">
+      <Header showAvatar />
       <main className="flex-grow flex relative overflow-hidden pt-[73px]">
         {/* Left sidebar */}
-        <aside className="h-[calc(100vh-73px)] w-80 fixed left-0 top-[73px] hidden lg:flex flex-col bg-inverse-surface border-r border-on-surface-variant z-40 p-4 gap-4">
+        <aside className="h-[calc(100vh-73px)] w-80 fixed left-0 top-[73px] hidden lg:flex flex-col bg-surface border-r border-outline-variant z-40 p-4 gap-4">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-on-surface-variant/20 rounded-lg flex items-center justify-center">
-              <MaterialIcon name="layers" className="text-primary" filled />
+            <div className="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center">
+              <MaterialIcon name="layers" className="text-primary-container" filled />
             </div>
             <div className="min-w-0">
-              <h3 className="font-technical-label text-technical-label font-bold text-surface-bright truncate">
+              <h3 className="font-technical-label text-technical-label font-bold text-on-surface truncate">
                 {objectPresent ? fileName : 'No object'}
               </h3>
               <p className="font-technical-label text-[10px] text-outline">
@@ -245,7 +245,7 @@ export default function Workshop() {
                 className={`flex items-center gap-3 p-3 rounded-xl transition-all ${
                   sideTab === item.id
                     ? 'bg-primary-container text-on-primary-container font-bold translate-x-1'
-                    : 'text-outline hover:bg-on-surface-variant/30'
+                    : 'text-outline hover:bg-surface-container-highest'
                 }`}
               >
                 <MaterialIcon name={item.icon} />
