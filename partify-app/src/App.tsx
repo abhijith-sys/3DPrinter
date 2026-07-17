@@ -7,6 +7,7 @@ import Review from './pages/Review'
 import Capabilities from './pages/Capabilities'
 import ResourceHub from './pages/ResourceHub'
 import HowItWorks from './pages/HowItWorks'
+import Workspace2 from './pages/Workspace2'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/how-it-works" element={<HowItWorks />} />
       <Route path="/workshop" element={<Workshop />} />
+      <Route path="/workspace-2" element={<Workspace2 />} />
       <Route path="/quote" element={<Upload />} />
       <Route path="/quote/configure" element={<Configure />} />
       <Route path="/quote/review" element={<Review />} />

@@ -201,3 +201,203 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.workspace-shell {
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr) 292px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.workspace-panel {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  background: rgb(var(--c-surface) / 0.96);
+  padding: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-outline) / 0.35) transparent;
+}
+
+.workspace-left {
+  border-right: 1px solid rgb(var(--c-outline-variant) / 0.45);
+}
+
+.workspace-right {
+  border-left: 1px solid rgb(var(--c-outline-variant) / 0.45);
+}
+
+.workspace-viewport {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--viewport-bg);
+}
+
+.workspace-icon-button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgb(var(--c-outline-variant) / 0.5);
+  border-radius: 8px;
+  color: rgb(var(--c-outline));
+  transition: 160ms ease;
+}
+
+.workspace-icon-button:hover {
+  border-color: rgb(var(--c-primary));
+  color: rgb(var(--c-primary));
+}
+
+.workspace-slider {
+  height: 3px;
+  appearance: none;
+  border-radius: 999px;
+  outline: none;
+  background: linear-gradient(90deg, #ff6828 0 62%, rgb(var(--c-outline-variant)) 62%);
+}
+
+.workspace-slider::-webkit-slider-thumb {
+  width: 13px;
+  height: 13px;
+  appearance: none;
+  border: 2px solid rgb(var(--c-surface));
+  border-radius: 999px;
+  background: rgb(var(--c-on-surface));
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.35);
+  cursor: pointer;
+}
+
+.workspace-slider::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgb(var(--c-surface));
+  border-radius: 999px;
+  background: rgb(var(--c-on-surface));
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.35);
+  cursor: pointer;
+}
+
+.workspace-view-button,
+.workspace-tool-button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  color: rgb(var(--c-outline));
+  transition: 160ms ease;
+}
+
+.workspace-view-button:hover,
+.workspace-tool-button:hover {
+  color: rgb(var(--c-on-surface));
+  background: rgb(var(--c-surface-container-high));
+}
+
+.workspace-view-active {
+  color: rgb(var(--c-on-surface));
+  background: rgb(var(--c-surface-container-highest));
+  box-shadow: inset 0 0 0 1px rgb(var(--c-outline-variant) / 0.6);
+}
+
+.workspace-tool-active {
+  color: white;
+  background: #ff6828;
+}
+
+.workspace-tool-active:hover {
+  color: white;
+  background: #ff7a43;
+}
+
+.workspace-reference-card {
+  position: absolute;
+  z-index: 10;
+  top: 27%;
+  left: 8%;
+  width: 172px;
+  overflow: hidden;
+  border: 1px solid rgb(0 0 0 / 0.12);
+  border-radius: 12px;
+  background: #f3f2ee;
+  box-shadow: 0 18px 45px rgb(0 0 0 / 0.28);
+}
+
+.reference-hand {
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 5px 5px rgb(0 0 0 / 0.18));
+}
+
+@media (max-width: 1279px) {
+  .workspace-shell {
+    grid-template-columns: 236px minmax(0, 1fr) 248px;
+  }
+
+  .workspace-reference-card {
+    left: 4%;
+    transform: scale(0.88);
+    transform-origin: left center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .workspace-shell {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.8fr) minmax(260px, 1fr);
+    grid-template-rows: minmax(500px, 62vh) auto;
+    height: calc(100vh - 73px);
+    padding-top: 73px;
+    overflow: auto;
+  }
+
+  .workspace-left,
+  .workspace-right {
+    border: 0;
+  }
+
+  .workspace-viewport {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .workspace-panel {
+    grid-row: 2;
+    max-height: none;
+    overflow: visible;
+    border-top: 1px solid rgb(var(--c-outline-variant) / 0.45);
+  }
+
+  .workspace-reference-card {
+    left: 4%;
+  }
+}
+
+@media (max-width: 639px) {
+  .workspace-shell {
+    display: flex;
+    height: calc(100vh - 73px);
+    padding-top: 73px;
+    flex-direction: column;
+  }
+
+  .workspace-viewport {
+    min-height: 470px;
+    flex: 0 0 470px;
+  }
+
+  .workspace-panel {
+    flex: none;
+  }
+
+  .workspace-reference-card {
+    top: 25%;
+    left: 2%;
+    transform: scale(0.72);
+  }
+}

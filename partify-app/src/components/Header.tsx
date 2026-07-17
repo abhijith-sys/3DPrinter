@@ -38,6 +38,7 @@ export default function Header({
         match: location.pathname === '/how-it-works',
       },
       { to: '/workshop', label: 'Workshop', match: location.pathname === '/workshop' },
+      { to: '/workspace-2', label: 'Workspace 2', match: location.pathname === '/workspace-2' },
       { to: '/capabilities', label: 'Capabilities', match: location.pathname === '/capabilities' },
       { to: '/resources', label: 'Resource hub', match: location.pathname === '/resources' },
     ]
@@ -51,12 +52,12 @@ export default function Header({
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {items.map((item) => (
             <Link
               key={item.label}
               to={item.to}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-nav-border text-[13px] font-medium text-on-surface bg-page hover:border-on-surface transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-nav-border text-[12px] font-medium text-on-surface bg-page hover:border-on-surface transition-colors"
             >
               <span
                 className={`w-1.5 h-1.5 rounded-full shrink-0 ${
@@ -99,7 +100,7 @@ export default function Header({
         </span>
       </Link>
 
-      <nav className="hidden md:flex gap-8 items-center">
+      <nav className="hidden xl:flex gap-5 items-center">
         <NavLink to="/" end className={navLinkClass}>
           Home
         </NavLink>
@@ -108,6 +109,9 @@ export default function Header({
         </NavLink>
         <NavLink to="/workshop" className={navLinkClass}>
           Workshop
+        </NavLink>
+        <NavLink to="/workspace-2" className={navLinkClass}>
+          Workspace 2
         </NavLink>
         <NavLink to="/capabilities" className={navLinkClass}>
           Capabilities

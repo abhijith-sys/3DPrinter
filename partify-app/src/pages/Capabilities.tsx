@@ -3,88 +3,158 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MaterialIcon from '../components/MaterialIcon'
 
-const capabilities = [
+const plans = [
   {
-    icon: 'precision_manufacturing',
-    title: 'Metal Additive (L-PBF)',
-    body: 'Industrial metal parts with media blasting and CNC post-processing. Build volume up to 500³ mm.',
+    eyebrow: '3D printing · Metal',
+    price: 250,
+    featured: true,
   },
   {
-    icon: 'layers',
-    title: 'Polymer (SLS / MJF / FDM)',
-    body: 'Functional prototypes and end-use polymer parts with dyeing and vapor smoothing options.',
+    eyebrow: '3D printing · Polymer',
+    price: 310,
+    featured: false,
   },
   {
-    icon: 'architecture',
-    title: 'CNC Machining',
-    body: 'Tight-tolerance metal and polymer machining for fixtures, jigs, and production runs.',
+    eyebrow: 'CNC · Metal and Polymer',
+    price: 440,
+    featured: false,
+  },
+]
+
+const comparison = [
+  {
+    label: 'Technology',
+    metal: 'L-PBF',
+    polymer: 'SLS, MJF, FDM',
+    cnc: 'CNC machining',
   },
   {
-    icon: 'speed',
-    title: 'Rapid Quoting',
-    body: 'Instant price estimates from STL, STEP, or CAD uploads — typically under 2 seconds.',
+    label: 'Post processing',
+    metal: 'Media blasting, CNC machining',
+    polymer: 'Dyeing, smoothing, painting',
+    cnc: 'Precision finishing',
   },
   {
-    icon: 'verified',
-    title: 'Quality Assurance',
-    body: 'Dimensional inspection, material certs, and process monitoring on every industrial order.',
+    label: 'Quality',
+    metal: 'Industrial grade',
+    polymer: 'Industrial grade',
+    cnc: 'Industrial grade',
   },
   {
-    icon: 'local_shipping',
-    title: 'Fast Delivery',
-    body: 'Standard polymer lead times from 6 business days; express options available on request.',
+    label: 'Lead times',
+    metal: 'From 12 business days',
+    polymer: 'From 6 business days',
+    cnc: 'From 6 business days',
+  },
+  {
+    label: 'Maximum sizes',
+    metal: 'Up to 500 × 500 × 500mm',
+    polymer: 'Up to 700 × 380 × 580mm',
+    cnc: 'Up to 1000 × 600 × 500mm',
   },
 ]
 
 export default function Capabilities() {
   return (
-    <div className="bg-background min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow pt-28 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-        <div className="mb-16 max-w-2xl">
-          <p className="font-technical-label text-technical-label text-primary uppercase tracking-widest mb-2">
-            Manufacturing stack
-          </p>
-          <h1 className="font-headline-xl text-headline-xl text-on-surface mb-4">Capabilities</h1>
-          <p className="text-on-surface-variant text-body-md font-body-md">
-            From additive metal to CNC finishing — Partify covers the full path from digital design
-            to industrial-grade parts.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {capabilities.map((c) => (
-            <div
-              key={c.title}
-              className="bg-surface-container rounded-[2rem] p-8 border border-outline-variant/20 hover:border-primary/40 transition-colors group"
-            >
-              <div className="w-14 h-14 mb-6 flex items-center justify-center bg-primary-container/30 rounded-xl group-hover:bg-primary-container transition-colors">
-                <MaterialIcon name={c.icon} className="text-primary" />
-              </div>
-              <h2 className="font-headline-lg text-headline-lg-mobile font-bold text-on-surface mb-3">
-                {c.title}
-              </h2>
-              <p className="text-on-surface-variant">{c.body}</p>
+    <div className="min-h-screen bg-page text-on-surface flex flex-col">
+      <Header variant="marketing" />
+      <main className="flex-1">
+        <section className="px-margin-mobile md:px-margin-desktop pt-14 md:pt-20 pb-16 max-w-container-max mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
+            <div className="max-w-3xl">
+              <p className="font-technical-label text-technical-label uppercase tracking-[0.12em] mb-5">
+                Find out exactly what you'll pay for
+              </p>
+              <h1 className="font-headline-xl text-[40px] sm:text-[52px] md:text-[64px] leading-[1.08] tracking-[-0.035em] font-medium">
+                No surprises, just honest
+                <br className="hidden sm:block" /> and straightforward quotes
+              </h1>
             </div>
-          ))}
-        </div>
+            <Link
+              to="/quote"
+              className="self-start md:self-center inline-flex items-center justify-center min-w-36 px-7 py-3.5 rounded-full bg-on-surface text-page font-button-text text-button-text uppercase hover:opacity-85 active:scale-95 transition-all"
+            >
+              Contact us
+            </Link>
+          </div>
 
-        <div className="bg-secondary-container rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 md:ml-[24%]">
+            {plans.map((plan, index) => (
+              <article
+                key={plan.eyebrow}
+                className={`relative overflow-hidden rounded-[1.4rem] p-5 md:p-6 min-h-56 flex flex-col justify-between border transition-transform hover:-translate-y-1 ${
+                  plan.featured
+                    ? 'bg-secondary-container text-on-secondary-fixed border-secondary-fixed-dim'
+                    : 'bg-surface-container-low text-on-surface border-outline-variant/20'
+                }`}
+              >
+                {plan.featured ? (
+                  <div className="absolute -left-16 bottom-3 w-24 h-24 border-[10px] border-secondary-fixed-dim/70 rounded-3xl rotate-45" />
+                ) : null}
+                <div className="relative">
+                  <p className="text-sm flex items-center gap-2">
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        index === 0 ? 'bg-on-secondary-fixed' : 'border border-outline'
+                      }`}
+                    />
+                    {plan.eyebrow}
+                  </p>
+                  <div className="mt-4 flex items-end gap-2">
+                    <span className="font-headline-lg text-[42px] leading-none font-semibold tracking-tight">
+                      ${plan.price}
+                    </span>
+                    <span className="text-[10px] uppercase opacity-60 mb-1.5">/ per part</span>
+                  </div>
+                </div>
+                <Link
+                  to="/quote"
+                  className="relative mt-8 w-full rounded-full bg-surface-container-lowest/90 text-on-surface py-3 text-center font-button-text text-button-text uppercase hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                >
+                  Print parts
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-y border-hairline bg-page">
+          <div className="max-w-container-max mx-auto overflow-x-auto">
+            <div className="min-w-[820px] grid grid-cols-[1.05fr_1.45fr_1.45fr_1.1fr]">
+              <div className="p-6 md:px-10 border-r border-hairline">
+                <p className="font-technical-label text-technical-label uppercase">Characteristics</p>
+              </div>
+              <div className="p-6 border-r border-hairline font-semibold">Metal 3D printing</div>
+              <div className="p-6 border-r border-hairline font-semibold">Polymer 3D printing</div>
+              <div className="p-6 font-semibold">CNC</div>
+              {comparison.map((row) => (
+                <div key={row.label} className="contents">
+                  <div className="px-6 md:px-10 py-4 border-r border-t border-hairline text-sm text-muted">
+                    {row.label}
+                  </div>
+                  <div className="px-6 py-4 border-r border-t border-hairline text-sm">{row.metal}</div>
+                  <div className="px-6 py-4 border-r border-t border-hairline text-sm">{row.polymer}</div>
+                  <div className="px-6 py-4 border-t border-hairline text-sm">{row.cnc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mb-2">
-              Ready to print?
-            </h2>
-            <p className="text-on-secondary-container max-w-md">
-              Upload a model and get a transparent quote — no surprises.
+            <p className="font-technical-label text-technical-label text-primary uppercase mb-2">
+              Have a custom requirement?
             </p>
+            <h2 className="font-headline-lg text-headline-lg font-semibold">Our engineers can help.</h2>
           </div>
           <Link
             to="/quote"
-            className="bg-on-background text-background px-8 py-4 rounded-xl font-button-text text-button-text flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary-container text-on-primary-container font-button-text uppercase hover:gap-3 transition-all"
           >
-            GET QUOTE <MaterialIcon name="arrow_forward" />
+            Start a quote <MaterialIcon name="arrow_forward" />
           </Link>
-        </div>
+        </section>
       </main>
       <Footer />
     </div>
