@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARTIFY | Effortless Industrial Part Sourcing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bcc3ff",
+                        "tertiary-fixed-dim": "#b1cad7",
+                        "background": "#fcf9f8",
+                        "outline-variant": "#c5c9ac",
+                        "primary": "#536600",
+                        "primary-container": "#d4ff00",
+                        "on-secondary-fixed": "#0b144f",
+                        "on-surface-variant": "#444932",
+                        "on-surface": "#1c1b1b",
+                        "outline": "#757a60",
+                        "on-primary-fixed": "#171e00",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-fixed": "#dfe0ff",
+                        "tertiary": "#4a626d",
+                        "surface-tint": "#536600",
+                        "inverse-primary": "#b0d500",
+                        "on-secondary-container": "#404883",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f0edec",
+                        "on-tertiary-fixed-variant": "#324a54",
+                        "tertiary-fixed": "#cde7f3",
+                        "primary-fixed-dim": "#b0d500",
+                        "on-primary-fixed-variant": "#3e4c00",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a427c",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-container": "#d8f2ff",
+                        "on-tertiary-container": "#576f7a",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f6f3f2",
+                        "surface": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "secondary": "#525a96",
+                        "on-tertiary-fixed": "#041e28",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#caf300",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-high": "#ebe7e7",
+                        "on-primary-container": "#5f7400",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#b2bafd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "button-text": ["Plus Jakarta Sans"],
+                        "technical-label": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "button-text": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "technical-label": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-blob {
+            mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+<span class="font-headline-lg text-headline-lg font-bold tracking-tighter text-on-surface">PARTIFY</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface font-bold border-b-2 border-primary font-technical-label text-technical-label" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Workshop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Capabilities</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Resource hub</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-button-text text-button-text hover:bg-primary/90 active:scale-95 transition-all">
+            GET QUOTE
+        </button>
+</header>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="min-h-[819px] flex items-center relative px-margin-mobile md:px-margin-desktop py-16">
+<div class="z-10 max-w-2xl">
+<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">
+                    Discover the joy of <br/>
+<span class="relative inline-block">
+<span class="relative z-10">effortless</span>
+<div class="absolute -inset-1 bg-secondary-container rounded-full -rotate-2 -z-10 opacity-70"></div>
+</span> 
+                    industrial part <br/> sourcing 
+                    <span class="relative inline-block">
+<span class="relative z-10">with Partify.</span>
+<div class="absolute -inset-1 bg-primary-container rounded-full rotate-1 -z-10 opacity-70"></div>
+</span>
+</h1>
+<p class="text-on-surface-variant font-body-md text-body-md mb-10 max-w-md">
+                    Partify's 3D printing service is now available and ready to revolutionize the way you think about production and manufacturing.
+                </p>
+<div class="flex items-center gap-4">
+<button class="bg-on-background text-background px-8 py-4 rounded-xl font-button-text text-button-text hover:opacity-90 active:scale-95 transition-all shadow-lg flex items-center gap-2">
+                        GET STARTED
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Organic Shapes Decoration -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full pointer-events-none hidden lg:block">
+<div class="relative w-full h-full">
+<div class="absolute top-1/4 right-20 w-64 h-64 bg-primary-container organic-blob opacity-40 animate-pulse"></div>
+<div class="absolute bottom-1/4 right-40 w-80 h-80 bg-secondary-container organic-blob opacity-30 animate-bounce transition-all duration-[5000ms]"></div>
+<div class="absolute top-1/2 right-1/4 w-40 h-40 bg-on-surface-variant/10 organic-blob"></div>
+</div>
+</div>
+</section>
+<!-- Pricing/Features Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="mb-16">
+<p class="font-technical-label text-technical-label text-primary uppercase tracking-widest mb-2">Find out exactly what you'll pay for</p>
+<h2 class="font-headline-lg text-headline-lg max-w-xl">No surprises, just honest and straightforward quotes</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1: Metal -->
+<div class="group bg-secondary-container rounded-[2rem] p-8 flex flex-col justify-between min-h-[400px] relative overflow-hidden transition-all hover:shadow-2xl">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-8">
+<span class="w-3 h-3 rounded-full bg-on-background"></span>
+<span class="font-technical-label text-technical-label">3D printing - Metal</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl">$250</span>
+<span class="font-technical-label text-technical-label opacity-60">/ PER PART</span>
+</div>
+</div>
+<button class="relative z-10 w-full bg-white/90 backdrop-blur-sm py-4 rounded-xl font-button-text text-button-text uppercase tracking-widest hover:bg-white transition-colors">
+                        PRINT PARTS
+                    </button>
+<!-- Blob Decoration -->
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-white/20 organic-blob pointer-events-none group-hover:scale-110 transition-transform"></div>
+</div>
+<!-- Card 2: Polymer -->
+<div class="group bg-surface-container-highest rounded-[2rem] p-8 flex flex-col justify-between min-h-[400px] relative overflow-hidden transition-all hover:shadow-xl">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-8">
+<span class="w-3 h-3 rounded-full border border-outline"></span>
+<span class="font-technical-label text-technical-label">3D printing - Polymer</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl">$310</span>
+<span class="font-technical-label text-technical-label opacity-60">/ PER PART</span>
+</div>
+</div>
+<button class="relative z-10 w-full bg-white/90 backdrop-blur-sm py-4 rounded-xl font-button-text text-button-text uppercase tracking-widest hover:bg-white transition-colors">
+                        PRINT PARTS
+                    </button>
+</div>
+<!-- Card 3: CNC -->
+<div class="group bg-surface-container-highest rounded-[2rem] p-8 flex flex-col justify-between min-h-[400px] relative overflow-hidden transition-all hover:shadow-xl">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-8">
+<span class="w-3 h-3 rounded-full border border-outline"></span>
+<span class="font-technical-label text-technical-label">CNC - Metal and Polymer</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl">$440</span>
+<span class="font-technical-label text-technical-label opacity-60">/ PER PART</span>
+</div>
+</div>
+<button class="relative z-10 w-full bg-white/90 backdrop-blur-sm py-4 rounded-xl font-button-text text-button-text uppercase tracking-widest hover:bg-white transition-colors">
+                        PRINT PARTS
+                    </button>
+</div>
+</div>
+<!-- Characteristics Table -->
+<div class="mt-16 overflow-x-auto">
+<table class="w-full text-left border-t border-outline-variant">
+<thead>
+<tr class="text-on-surface-variant font-technical-label text-technical-label uppercase tracking-widest">
+<th class="py-8 font-normal">Characteristics</th>
+<th class="py-8 font-normal">Technology</th>
+<th class="py-8 font-normal">Post Processing</th>
+<th class="py-8 font-normal">Lead Times</th>
+<th class="py-8 font-normal">Max Sizes</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="font-body-md text-on-surface">
+<td class="py-6 font-bold">Metal</td>
+<td class="py-6">L-PBF</td>
+<td class="py-6">Media blasting, CNC</td>
+<td class="py-6">From 12 business days</td>
+<td class="py-6">500 x 500 x 500mm</td>
+</tr>
+<tr class="font-body-md text-on-surface">
+<td class="py-6 font-bold">Polymer</td>
+<td class="py-6">SLS, MJF, FDM</td>
+<td class="py-6">Dyeing, Smoothing</td>
+<td class="py-6">From 6 business days</td>
+<td class="py-6">700 x 380 x 580mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Feature Cards -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-outline-variant">
+<!-- Feature 1 -->
+<div class="p-12 border-r border-outline-variant group hover:bg-white transition-colors">
+<div class="w-16 h-16 mb-8 flex items-center justify-center bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-primary scale-125">explore</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 flex items-center justify-between group-hover:text-primary transition-colors">
+                    A world of possibilities
+                    <span class="material-symbols-outlined">chevron_right</span>
+</h3>
+<p class="text-on-surface-variant">Discover our advanced manufacturing materials and technologies for any industry.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-12 border-r border-outline-variant group hover:bg-white transition-colors">
+<div class="w-16 h-16 mb-8 flex items-center justify-center bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-primary scale-125">verified</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 flex items-center justify-between group-hover:text-primary transition-colors">
+                    Quality that you can trust
+                    <span class="material-symbols-outlined">chevron_right</span>
+</h3>
+<p class="text-on-surface-variant">Explore our industrial-grade parts and advanced specification options for precision.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-12 group hover:bg-white transition-colors">
+<div class="w-16 h-16 mb-8 flex items-center justify-center bg-surface-container rounded-xl">
+<span class="material-symbols-outlined text-primary scale-125">speed</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 flex items-center justify-between group-hover:text-primary transition-colors">
+                    Get your parts faster
+                    <span class="material-symbols-outlined">chevron_right</span>
+</h3>
+<p class="text-on-surface-variant">Industrial-grade parts, fast delivery: standard shipping in 6 business days max.</p>
+</div>
+</section>
+<!-- Dynamic Visualization Placeholder -->
+<section class="h-[600px] relative overflow-hidden bg-inverse-surface flex items-center justify-center text-center px-8">
+
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-white mb-6">Experience High-Tech <br/> Minimalism</h2>
+<p class="font-technical-label text-technical-label text-primary-fixed mb-12 uppercase tracking-widest">Generative Design &amp; Additive Manufacturing</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-white">
+<div class="text-4xl font-bold mb-2">99.8%</div>
+<div class="text-xs uppercase opacity-50 font-technical-label">Precision Rate</div>
+</div>
+<div class="text-white">
+<div class="text-4xl font-bold mb-2">24/7</div>
+<div class="text-xs uppercase opacity-50 font-technical-label">Active Monitoring</div>
+</div>
+<div class="text-white">
+<div class="text-4xl font-bold mb-2">150+</div>
+<div class="text-xs uppercase opacity-50 font-technical-label">Pro Materials</div>
+</div>
+<div class="text-white">
+<div class="text-4xl font-bold mb-2">1.2s</div>
+<div class="text-xs uppercase opacity-50 font-technical-label">Quoting Speed</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-8 w-full gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-headline-lg text-on-surface font-bold tracking-tighter">PARTIFY</span>
+<p class="text-technical-label font-technical-label text-on-surface-variant">© 2024 PARTIFY MANUFACTURING INC.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Materials Guide</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-technical-label text-technical-label" href="#">Help Center</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:text-white">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:text-white">public</span>
+</a>
+</div>
+</footer>
+<script>
+        // Simple scroll observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'transform');
+            // observer.observe(el);
+        });
+    </script>
+</body></html>
