@@ -32,7 +32,12 @@ export default function Header({
   if (variant === 'marketing') {
     const items = [
       { to: '/', label: 'Home', match: location.pathname === '/' },
-      { to: '/#how-it-works', label: 'How it works', match: false },
+      {
+        to: '/how-it-works',
+        label: 'How it works',
+        match: location.pathname === '/how-it-works',
+      },
+      { to: '/workshop', label: 'Workshop', match: location.pathname === '/workshop' },
       { to: '/capabilities', label: 'Capabilities', match: location.pathname === '/capabilities' },
       { to: '/resources', label: 'Resource hub', match: location.pathname === '/resources' },
     ]
@@ -97,6 +102,9 @@ export default function Header({
       <nav className="hidden md:flex gap-8 items-center">
         <NavLink to="/" end className={navLinkClass}>
           Home
+        </NavLink>
+        <NavLink to="/how-it-works" className={navLinkClass}>
+          How it works
         </NavLink>
         <NavLink to="/workshop" className={navLinkClass}>
           Workshop

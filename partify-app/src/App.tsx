@@ -6,11 +6,13 @@ import Configure from './pages/Configure'
 import Review from './pages/Review'
 import Capabilities from './pages/Capabilities'
 import ResourceHub from './pages/ResourceHub'
+import HowItWorks from './pages/HowItWorks'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/how-it-works" element={<HowItWorks />} />
       <Route path="/workshop" element={<Workshop />} />
       <Route path="/quote" element={<Upload />} />
       <Route path="/quote/configure" element={<Configure />} />

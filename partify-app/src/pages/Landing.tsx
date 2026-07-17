@@ -101,6 +101,12 @@ export default function Landing() {
               Partify&apos;s 3D printing service is now available and ready to revolutionize the way
               you think about production and manufacturing.
             </p>
+            <Link
+              to="/how-it-works"
+              className="mt-6 inline-flex items-center gap-1 text-[13px] font-semibold tracking-wide uppercase text-on-surface hover:text-primary transition-colors"
+            >
+              How it works <span aria-hidden>›</span>
+            </Link>
           </div>
 
           <div className="relative w-full min-h-[280px] sm:min-h-[360px] lg:min-h-[480px] lg:h-full">
@@ -109,10 +115,10 @@ export default function Landing() {
         </section>
 
         <section
-          id="how-it-works"
+          id="home-features"
           className="border-t border-hairline grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-auto"
         >
-          <div className="flex items-center px-6 md:px-10 py-8 lg:py-12 border-b sm:border-b lg:border-b-0 sm:border-r border-hairline">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 px-6 md:px-10 py-8 lg:py-12 border-b sm:border-b lg:border-b-0 sm:border-r border-hairline">
             <Link
               to="/quote"
               className={`px-9 py-3.5 rounded-full text-[13px] font-semibold tracking-wide uppercase hover:opacity-90 active:scale-95 transition-all ${
@@ -122,6 +128,12 @@ export default function Landing() {
               }`}
             >
               GET STARTED
+            </Link>
+            <Link
+              to="/how-it-works"
+              className="text-[13px] font-semibold tracking-wide uppercase text-muted hover:text-on-surface transition-colors"
+            >
+              How it works ›
             </Link>
           </div>
 
